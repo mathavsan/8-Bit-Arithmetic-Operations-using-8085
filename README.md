@@ -70,8 +70,25 @@ HLT
 4.	Store the result in memory locations 4300H and 4301H (if required for higher bits).
 
 ### Program:
+```
+LDA 4200H
+MOV C, A
+LDA 4201H
+MOV B, A
+MVI A, 00H
+LOOP: ADD C
+DCR B
+JNZ LOOP
+STA 4300H
+HLT
+```
+### Verification
+
+<img width="407" height="737" alt="image" src="https://github.com/user-attachments/assets/f4612b9a-1519-4160-974c-036edca9b7d3" />
 
 ### Output:
+
+<img width="1918" height="968" alt="image" src="https://github.com/user-attachments/assets/55fd3bfc-32c7-4e6c-8b1e-f880b27d90c3" />
 
 ### For Division:
 1.	Load the dividend from memory location 4200H into register A.
@@ -80,8 +97,35 @@ HLT
 4.	Store the quotient in 4300H and remainder in 4301H.
 
 ### Program:
+```
+LDA 4200H
+MOV C, A
+LDA 4201H
+MOV B, A
+MVI D, 00H
+MVI A, 00H
 
+LOOP: MOV A, C
+CMP B
+JC END
+SUB B
+MOV C, A
+INR D
+JMP LOOP
+END: MOV A, D
+STA 4300H
+MOV A, C
+STA 4301H
+HLT
+```
 ### Output:
+
+
+<img width="1918" height="1023" alt="image" src="https://github.com/user-attachments/assets/746006a6-13b6-440f-9761-7df92b264dea" />
+
+### Verification
+
+<img width="413" height="543" alt="image" src="https://github.com/user-attachments/assets/160f598f-e545-42cf-9643-529112799d68" />
 
 ## Result:
 The 8-bit arithmetic operations using the 8085 microprocessor have been successfully executed and verified using memory access for input and output.
