@@ -15,8 +15,25 @@ To perform 8-bit arithmetic operations such as addition, subtraction, multiplica
 5.	Store the sum in memory location 4300H.
    
 ### Program:
+```
+LDA 4300H
+MOV B, A
+LDA 4301H
+ADD B
+STA 4400H
+JC STORECARRY
+HLT
+STORECARRY: MVI A, 01H
+STA 4401H
+HLT
+```
+### Verification
+
+<img width="357" height="525" alt="image" src="https://github.com/user-attachments/assets/b6837bad-33ee-4bcf-982f-1b6c0f6b443e" />
 
 ### Output:
+
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/8c98e904-61d6-448b-b368-813d4904f34e" />
 
 ### For Subtraction (Considering Greater Number):
 1.	Load the first number from memory location 4200H into register A.
