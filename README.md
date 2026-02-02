@@ -44,8 +44,24 @@ HLT
 6.	Store the result in memory location 4300H.
 
 ### Program:
+```
+LDA 4200H
+MOV C, A
+LDA 4201H
+CMP C
+JC SWAP
+SWAP:
+MOV B, A
+MOV A, C
+SUB B
+STA 4300H
+HLT
+```
+### Verification
+<img width="377" height="630" alt="image" src="https://github.com/user-attachments/assets/438a10db-397b-4bbc-96f9-2bb33376a18c" />
 
 ### Output:
+<img width="1918" height="1027" alt="image" src="https://github.com/user-attachments/assets/e61a16d4-0e13-49a4-93ef-0bf7facf0c3e" />
 
 ### For Multiplication:
 1.	Load the first number from memory location 4200H into register A.
